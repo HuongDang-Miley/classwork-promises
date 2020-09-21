@@ -1,27 +1,33 @@
-// 1.
-// Create a promise called myFirstPromise
+// // 1.
+// // Create a promise called myFirstPromise
 
-// Inside the promise
-// Create a boolean variable check and set it to true
-// Create a variable rand and it should calculate a random number between 1 and 10
+// myFirstPromise = new Promise((resolve, reject) => {
+//   // Create a boolean variable check and set it to true
+//   check = true;
+//   // Create a variable rand and it should calculate a random number between 1 and 10
+//   rand = Math.random() * 10
+//   // If the check boolean is true it should resolve with the result of a random number between one and ten
+//   if (check) {
+//     setTimeout(() => {
+//       resolve(rand)
+//     }, 2000)
+//   }
+//   // if the check boolean is false, it should reject with a string that says: Cannot computer random number
+//   else {
+//     setTimeout(() => {
+//       reject('Cannot computer random number')
+//     }, 2000)
+//   }
+// })
 
-
-// If the check boolean is true it should resolve with the
-// result of a random number between one and ten
-
-// if the check boolean is false, it should reject with
-// a string that says: Cannot computer random number
-
-// Both resolve and reject should only occur after 2 seconds
-
-// Now call the promise you created and chain your thenables.
-// In your first thenable
-// console.log('I have my random number <the number> and I will multiply it by 5')
-// Multiply your random number by 5 and pass the data to the next thenable
-
-// In your second thenable log a String
-// that says `Here is the result of my random number multiplied
-// by 5: < place number result here>`
+// myFirstPromise
+//   .then((data) => {
+//     console.log(`I have my random number ${data} and I will multiply it by 5`)
+//     return data
+//   })
+//   .then((newData) => {
+//     console.log(`Here is the result of my random number multiplied by 5: ${newData * 5}`)
+//   })
 
 
 
@@ -44,3 +50,26 @@ let data = [
   { firstName: 'Doug', lastName: 'Lawson' },
   { firstName: 'Sandra', lastName: 'Mathers' },
 ];
+
+// const test = data.forEach((obj) => {console.log( `Hello ${obj.firstName} ${obj.lastName}`)})
+
+// test
+const getDataPromise = function (data) {
+  return new Promise((reject) => {
+    const error = false
+    if (error) {
+      reject('Something went wrong')
+    }
+    else {
+      setTimeout(() => {
+        data.forEach((obj) => { console.log(`Hello ${obj.firstName} ${obj.lastName}`) })
+      }, 2000)
+    }
+  })
+
+}
+
+getDataPromise(data)
+  .catch((err) => {
+    console.log(`${err}: There's an error`)
+  })
