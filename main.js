@@ -1,33 +1,33 @@
-// // 1.
-// // Create a promise called myFirstPromise
+// 1.
+// Create a promise called myFirstPromise
 
-// myFirstPromise = new Promise((resolve, reject) => {
-//   // Create a boolean variable check and set it to true
-//   check = true;
-//   // Create a variable rand and it should calculate a random number between 1 and 10
-//   rand = Math.random() * 10
-//   // If the check boolean is true it should resolve with the result of a random number between one and ten
-//   if (check) {
-//     setTimeout(() => {
-//       resolve(rand)
-//     }, 2000)
-//   }
-//   // if the check boolean is false, it should reject with a string that says: Cannot computer random number
-//   else {
-//     setTimeout(() => {
-//       reject('Cannot computer random number')
-//     }, 2000)
-//   }
-// })
+myFirstPromise = new Promise((resolve, reject) => {
+  // Create a boolean variable check and set it to true
+  check = true;
+  // Create a variable rand and it should calculate a random number between 1 and 10
+  rand = Math.random() * 10
+  // If the check boolean is true it should resolve with the result of a random number between one and ten
+  if (check) {
+    setTimeout(() => {
+      resolve(rand)
+    }, 2000)
+  }
+  // if the check boolean is false, it should reject with a string that says: Cannot computer random number
+  else {
+    setTimeout(() => {
+      reject('Cannot computer random number')
+    }, 2000)
+  }
+})
 
-// myFirstPromise
-//   .then((data) => {
-//     console.log(`I have my random number ${data} and I will multiply it by 5`)
-//     return data
-//   })
-//   .then((newData) => {
-//     console.log(`Here is the result of my random number multiplied by 5: ${newData * 5}`)
-//   })
+myFirstPromise
+  .then((data) => {
+    console.log(`I have my random number ${data} and I will multiply it by 5`)
+    return data
+  })
+  .then((newData) => {
+    console.log(`Here is the result of my random number multiplied by 5: ${newData * 5}`)
+  })
 
 
 
